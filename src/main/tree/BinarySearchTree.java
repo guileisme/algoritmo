@@ -100,32 +100,36 @@ public class BinarySearchTree implements EstruturaElementar{
                     atual.setDireita(null);
                     return;
                 }
-                else if (atual.getDireita().getValor() == valor && atual.getDireita().getDireita() != null)
-                {
-                    atual.setEsquerda(atual.getDireita().getEsquerda());
-                }
-
-                else if (atual.getDireita().getValor() == valor && atual.getDireita().getEsquerda() != null)
+                if (atual.getDireita().getValor() == valor && atual.getDireita().getDireita() != null)
                 {
                     atual.setDireita(atual.getDireita().getDireita());
+                    return;
+                }
+
+                if (atual.getDireita().getValor() == valor && atual.getDireita().getEsquerda() != null)
+                {
+                    atual.setDireita(atual.getDireita().getEsquerda());
+                    return;
                 }
                 atual = atual.getDireita(); 
             } 
 
             else if (atual.getValor() > valor && (atual.getDireita().getDireita() != null && atual.getEsquerda().getEsquerda() != null))
             {
-                if (atual.getEsquerda().getValor() == valor && (atual.getDireita().getDireita() != null && atual.getEsquerda().getEsquerda() != null) ){
+                if (atual.getEsquerda().getValor() == valor && (atual.getDireita().getDireita() == null && atual.getEsquerda().getEsquerda() == null) ){
                     atual.setEsquerda(null);
                     return;
                 }
-                else if (atual.getEsquerda().getValor() == valor && atual.getDireita().getDireita() != null)
+                if (atual.getEsquerda().getValor() == valor && atual.getEsquerda().getDireita() != null)
                 {
-                    atual.setEsquerda(atual.getDireita().getEsquerda());
+                    atual.setEsquerda(atual.getEsquerda().getDireita());
+                    return;
                 }
 
-                else if (atual.getDireita().getValor() == valor && atual.getDireita().getEsquerda() != null)
+                if (atual.getEsquerda().getValor() == valor && atual.getEsquerda().getEsquerda() != null)
                 {
-                    atual.setDireita(atual.getDireita().getDireita());
+                    atual.setEsquerda(atual.getEsquerda().getEsquerda());
+                    return;
                 }
                 atual = atual.getEsquerda(); 
             }
