@@ -14,11 +14,11 @@ public class Main {
         b.insereElemento(3);
         b.insereElemento(2);
         b.insereElemento(-1);
-        boolean b2 = b.buscaElemento(-1);
+        boolean b2 = b.buscaElemento(25);
         System.out.println(b2);
         System.out.println(b.emOrdem());
-        b.remove(-1);
-        b2 = b.buscaElemento(-1);
+        b.remove(25);
+        b2 = b.buscaElemento(25);
         System.out.println(b2);
         System.out.println(b.emOrdem());
     }

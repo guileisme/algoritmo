@@ -96,18 +96,36 @@ public class BinarySearchTree implements EstruturaElementar{
         while (atual != null && atual.getValor() != valor)
         {
             if (atual.getValor() < valor){
-                if (atual.getDireita().getValor() == valor){
+                if (atual.getDireita().getValor() == valor && (atual.getDireita().getDireita() != null && atual.getEsquerda().getEsquerda() != null) ){
                     atual.setDireita(null);
                     return;
+                }
+                else if (atual.getDireita().getValor() == valor && atual.getDireita().getDireita() != null)
+                {
+                    atual.setEsquerda(atual.getDireita().getEsquerda());
+                }
+
+                else if (atual.getDireita().getValor() == valor && atual.getDireita().getEsquerda() != null)
+                {
+                    atual.setDireita(atual.getDireita().getDireita());
                 }
                 atual = atual.getDireita(); 
             } 
 
-            else if (atual.getValor() > valor)
+            else if (atual.getValor() > valor && (atual.getDireita().getDireita() != null && atual.getEsquerda().getEsquerda() != null))
             {
-                if (atual.getEsquerda().getValor() == valor){
+                if (atual.getEsquerda().getValor() == valor && (atual.getDireita().getDireita() != null && atual.getEsquerda().getEsquerda() != null) ){
                     atual.setEsquerda(null);
                     return;
+                }
+                else if (atual.getEsquerda().getValor() == valor && atual.getDireita().getDireita() != null)
+                {
+                    atual.setEsquerda(atual.getDireita().getEsquerda());
+                }
+
+                else if (atual.getDireita().getValor() == valor && atual.getDireita().getEsquerda() != null)
+                {
+                    atual.setDireita(atual.getDireita().getDireita());
                 }
                 atual = atual.getEsquerda(); 
             }
